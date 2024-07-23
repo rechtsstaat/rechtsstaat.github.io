@@ -1,0 +1,187 @@
+<body style='background-color:black'>
+
+<canvas id='canvas' width=500 height=500 style='width:100%;height:100%'></canvas>
+<script>
+
+
+function wielsieder(){
+return Math.random();
+}
+
+var eetels=0;
+var slicelength=500;
+var sliceheight=500;
+var aaraarx=new Array();
+var aaraarx2=new Array();
+var aaraarx=new Array();
+var aaraarx2=new Array();
+var tempx="";
+var refvgame5=0;
+var gridgame5=new Array();
+var gridgame52=new Array();
+
+
+var can=document.getElementById('canvas');
+var ctx=can.getContext('2d');
+var pixels=ctx.getImageData(0,0,slicelength, sliceheight);
+
+
+
+
+
+var somtels20=0;
+function doStep19() {
+
+
+
+
+
+
+
+if(eetels==0){
+ percentag620=.001;
+somtels20=0;
+ maxstt20=Math.floor(percentag620*sliceheight*sliceheight);
+
+ particlesre20=new Array(maxstt20);
+ radsss=40;
+
+
+aaraar=new Array();
+for (i55 = 0; i55 < sliceheight; i55++) {
+aaraar[i55]=[];
+
+}
+	
+	
+
+    for (i55 = 0; i55 < sliceheight; i55++) {
+        for (j55 = 0; j55 < sliceheight; j55++) {
+            aaraar[i55][j55] = false;
+        }
+    
+
+
+}
+
+for(e=0;e<maxstt20;e++){
+
+	 props20=new Array();
+
+	act=wielsieder();
+	startx8=Math.round(sliceheight/2);
+	starty8=Math.round(sliceheight/2);
+	
+	endx=Math.round(wielsieder()*sliceheight);
+	endy=Math.round(wielsieder()*sliceheight);
+	dx7=endx-startx8;
+	dy7=endy-starty8;
+
+
+
+	props20[0]=dx7;
+	props20[1]=dy7;
+
+	speed8=1*Math.random();
+	props20[2]=speed8;
+	tme9=0;
+	props20[3]=tme9;
+	props20[4]=1+Math.round(wielsieder()*1);
+
+
+	particlesre20[e]=props20;
+
+
+}
+
+}
+
+
+
+somtels20=somtels20+.0025;
+ctx.clearRect(0,0,sliceheight,sliceheight);
+ctx.fillStyle='transparent';
+ctx.fillRect(0,0,sliceheight,sliceheight);
+
+pixels=ctx.getImageData(0,0,slicelength, sliceheight);
+	for(e=0;e<maxstt20;e++){
+		props20w=particlesre20[e];
+		dx8=props20w[0];
+		dy8=props20w[1];
+		speed7=props20w[2];
+		telsts=props20w[3];
+		sizzes=props20w[4];
+		
+		telsts=telsts+speed7;
+		xu=Math.round((sliceheight/2)+(dx8*telsts));
+				
+		yu=Math.round((sliceheight/2)+(dy8*telsts));
+		if(xu<5 || yu<5 || xu>=(sliceheight-5) || yu>=(sliceheight-5) ){
+		telsts=0;
+	speed7=1*Math.random();
+	
+			startx8=Math.round(sliceheight/2);
+	starty8=Math.round(sliceheight/2);
+	
+	endx=Math.round(wielsieder()*sliceheight);
+	endy=Math.round(wielsieder()*sliceheight);
+	dx8=endx-startx8;
+	dy8=endy-starty8;
+
+sizzes=1+Math.round(wielsieder()*1);
+	
+		}
+else{
+
+			for(jx=0;jx<sizzes;jx++){		
+				for(jy=0;jy<sizzes;jy++){
+				if((xu+jx)<sliceheight &&  (yu+jy)<sliceheight)
+				aaraar[(xu+jx)][(yu+jy)]=true;
+
+		offs=((jy+yu)*sliceheight)+(xu+jx);
+	ofs=4*offs;
+
+		pixels.data[ofs]=255;
+		pixels.data[ofs+1]=255;
+		pixels.data[ofs+2]=255;
+		pixels.data[ofs+3]=255;
+				}
+			}
+		}
+dfd75=new Array();
+dfd75[0]=dx8;
+dfd75[1]=dy8;
+dfd75[2]=speed7;
+dfd75[3]=telsts;
+dfd75[4]=sizzes;
+particlesre20[e]=dfd75;
+		
+		
+	}
+
+    eetels +=1;
+	ctx.putImageData(pixels,0,0);
+	//window.requestAnimationFrame(doStep19)
+	setTimeout("doStep19()", 80);
+
+/*
+    ror = 0;
+    imjgu = new Array();
+    for (zu = 0; zu < sliceheight; zu++) {
+        imjgu[zu] = [];
+    }
+    for (znu = 0; znu < sliceheight; znu++) {
+        for (zou = 0; zou < sliceheight; zou++) {
+            imjgu[znu][zou] = aaraar[((2+radsss)  + (znu % (2 * s16)))][(( 2+radsss)  + (zou % (2 * s16)))];
+        }
+    }
+    themoslices[eetels] = imjgu;
+    tiot++;
+
+*/
+
+}
+
+
+doStep19();
+</script>

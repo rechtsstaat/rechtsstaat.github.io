@@ -1,0 +1,129 @@
+<body style='background-color:black'>
+
+<canvas id='canvas00' width=400 height=400 style='width:100%;height:100%'></canvas>
+<script>
+
+
+var eetels0=0;
+var slicelength0=400;
+var sliceheight0=400;
+var aaraarx0=new Array();
+var aaraarx02=new Array();
+var aaraarx0=new Array();
+var aaraarx02=new Array();
+var tempx0="";
+var refvgame50=0;
+var gridgame50=new Array();
+var gridgame502=new Array();
+
+
+var cane0=document.getElementById('canvas00');
+var ctx00=cane0.getContext('2d');
+var pixels00=ctx00.getImageData(0,0,slicelength0, sliceheight0);
+
+
+
+
+var percentag6ru0=.003;
+var maxsttru0=Math.floor(percentag6ru0*sliceheight0*sliceheight0);
+
+var particlesru0=new Array(maxsttru0);
+var radsssru0=40;
+
+
+function initprugame17(){
+
+ percentag6ru0=.003;
+ maxsttru0=Math.floor(percentag6ru0*sliceheight0*sliceheight0);
+
+ particlesru0=new Array(maxsttru0);
+ radsssru0=800;
+
+
+
+for(e=0;e<maxsttru0;e++){
+
+	var props=new Array();
+	fty=Math.random();
+	mnx=Math.floor(Math.random()*(sliceheight0));
+	mny=Math.floor(Math.random()*(sliceheight0));
+	props[0]=fty;
+	props[1]=mnx;
+	props[2]=mny;
+
+	fsd=Math.round(Math.random()*1);
+	props[3]=Math.pow(-1, fsd);	
+
+	particlesru0[e]=props;
+
+    
+}
+telsmaaai0=0;
+
+}
+
+var telsmaaai0=0;
+
+function doStep170(){
+telsmaaai0++;
+if(eetels0==0){
+initprugame17();
+}
+ctx00.clearRect(0,0,sliceheight0,sliceheight0);
+ctx00.fillStyle='transparent';
+ctx00.fillRect(0,0,sliceheight0,sliceheight0);
+
+pixels00=ctx00.getImageData(0,0,slicelength0, sliceheight0);
+	for(e=0;e<maxsttru0;e++){
+		props=particlesru0[e];
+		maxxxe=props[0];
+
+		x=props[1];
+		y=props[2];
+		tij=props[3];
+		
+		if((Math.random())>maxxxe){
+			tij=tij*-1;
+		}
+
+
+		pp=new Array();
+		pp[0]=maxxxe;
+		pp[1]=x;
+		pp[2]=y;
+		pp[3]=tij;
+
+		particlesru0[e]=pp;
+
+
+
+if(tij==1){
+		offs=(y*sliceheight0)+x;
+	ofs=4*offs;
+
+
+		pixels00.data[ofs]=255;
+		pixels00.data[ofs+1]=255;
+		pixels00.data[ofs+2]=255;
+
+		pixels00.data[ofs+3]=255;
+
+	}	
+
+
+
+		
+	}
+eetels0++;
+	ctx00.putImageData(pixels00,0,0);
+	setTimeout("doStep170()", 185);
+	//window.requestAnimationFrame(doStep170);
+
+}
+
+
+
+
+
+doStep170();
+</script>

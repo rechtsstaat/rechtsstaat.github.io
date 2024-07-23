@@ -1,0 +1,146 @@
+<body style='background-color:black'>
+
+<canvas id='canvas' width=400 height=400 style='width:100%;height:100%'></canvas>
+<script>
+
+
+var eetels=0;
+var slicelength=400;
+var sliceheight=400;
+var aaraarx=new Array();
+var aaraarx2=new Array();
+var aaraarx=new Array();
+var aaraarx2=new Array();
+var tempx="";
+var refvgame5=0;
+var gridgame5=new Array();
+var gridgame52=new Array();
+
+
+var can=document.getElementById('canvas');
+var ctx=can.getContext('2d');
+var pixels=ctx.getImageData(0,0,slicelength, sliceheight);
+
+
+
+
+
+var somtels=0;
+function doStepE6() {
+
+
+
+if(eetels==0){
+ percentag6=.00666;
+ maxstt=Math.floor(percentag6*sliceheight*sliceheight);
+
+ particlesre=new Array(maxstt);
+ radsss=40;
+
+
+aaraar=new Array();
+for (i55 = 0; i55 < sliceheight; i55++) {
+aaraar[i55]=[];
+
+}
+	
+	
+
+    for (i55 = 0; i55 < sliceheight; i55++) {
+        for (j55 = 0; j55 < sliceheight; j55++) {
+            aaraar[i55][j55] = false;
+        }
+    
+
+
+}
+
+for(e=0;e<maxstt;e++){
+
+	var props=new Array();
+
+	omega=.2+Math.random();
+	if(Math.random()){
+		omega=omega*-1;
+	}
+	props[0]=omega;
+
+
+	radssss=4+(10*Math.random());
+	props[1]=radssss;
+	mnxx=Math.floor(Math.random()*sliceheight) -14;
+	mnyy=Math.floor(Math.random()*sliceheight) -14;
+
+    	props[2]=mnxx;
+	props[3]=mnyy;
+
+
+	particlesre[e]=props;
+
+
+}
+
+}
+
+
+
+somtels=somtels+.1;
+ctx.clearRect(0,0,sliceheight,sliceheight);
+ctx.fillStyle='transparent';
+ctx.fillRect(0,0,sliceheight,sliceheight);
+
+pixels=ctx.getImageData(0,0,slicelength, sliceheight);
+	for(e=0;e<maxstt;e++){
+				propsw=particlesre[e];
+		omega=propsw[0];
+		raddsss=propsw[1];
+		
+		
+		mmxx=propsw[2];
+		mmyy=propsw[3];
+
+		
+		xu=mmxx-Math.round((raddsss/1)*Math.sin(omega*somtels));
+		yu=mmyy-Math.round((raddsss/1)*Math.cos(omega*somtels));
+
+		offs=(yu*sliceheight)+xu;
+	ofs=4*offs;
+		offs=(yu*sliceheight)+xu;
+	ofs=4*offs;
+		pixels.data[ofs]=255;
+		pixels.data[ofs+1]=255;
+		pixels.data[ofs+2]=255;
+		pixels.data[ofs+3]=255;
+
+		if(xu>=0 && yu>=0 && xu<sliceheight && yu<sliceheight){
+			aaraar[xu][yu]=true;
+		}
+		
+		
+	}
+
+    eetels +=1;
+	ctx.putImageData(pixels,0,0);
+	//window.requestAnimationFrame(doStepE6)
+	setTimeout("doStepE6()", 200);
+
+/*
+    ror = 0;
+    imjgu = new Array();
+    for (zu = 0; zu < sliceheight; zu++) {
+        imjgu[zu] = [];
+    }
+    for (znu = 0; znu < sliceheight; znu++) {
+        for (zou = 0; zou < sliceheight; zou++) {
+            imjgu[znu][zou] = aaraar[((2+radsss)  + (znu % (2 * s16)))][(( 2+radsss)  + (zou % (2 * s16)))];
+        }
+    }
+    themoslices[eetels] = imjgu;
+    tiot++;
+
+*/
+
+}
+
+doStepE6();
+</script>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iframe Rotation</title>
+    <style>
+        iframe {
+            width: 100%;
+            height: 300px;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        iframe.active {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <iframe id="if0" src="about:blank"  style="position:fixed;left:0;top:0;width:100%;height:100%" scrolling=no scrollbars='no' border=0 frameborder=0></iframe>
+    <iframe id="if1" src="about:blank"  style="position:fixed;left:0;top:0;width:100%;height:100%" scrolling=no scrollbars='no' border=0 frameborder=0></iframe>
+    <iframe id="if2" src="about:blank"  style="position:fixed;left:0;top:0;width:100%;height:100%" scrolling=no scrollbars='no' border=0 frameborder=0></iframe>
+    <iframe id="if3" src="about:blank"  style="position:fixed;left:0;top:0;width:100%;height:100%" scrolling=no scrollbars='no' border=0 frameborder=0></iframe>
+    <iframe id="if4" src="about:blank"  style="position:fixed;left:0;top:0;width:100%;height:100%" scrolling=no scrollbars='no' border=0 frameborder=0></iframe>
+    <iframe id="if5" src="about:blank"  style="position:fixed;left:0;top:0;width:100%;height:100%" scrolling=no scrollbars='no' border=0 frameborder=0></iframe>
+    <iframe id="if6" src="about:blank"  style="position:fixed;left:0;top:0;width:100%;height:100%" scrolling=no scrollbars='no' border=0 frameborder=0></iframe>
+    <iframe id="if7" src="about:blank"  style="position:fixed;left:0;top:0;width:100%;height:100%" scrolling=no scrollbars='no' border=0 frameborder=0></iframe>
+    <iframe id="if8" src="about:blank"  style="position:fixed;left:0;top:0;width:100%;height:100%" scrolling=no scrollbars='no' border=0 frameborder=0></iframe>
+    <iframe id="if9" src="about:blank"  style="position:fixed;left:0;top:0;width:100%;height:100%" scrolling=no scrollbars='no' border=0 frameborder=0></iframe>
+    <iframe id="if10" src="about:blank"  style="position:fixed;left:0;top:0;width:100%;height:100%" scrolling=no scrollbars='no' border=0 frameborder=0></iframe>
+    <iframe id="if11" src="about:blank"  style="position:fixed;left:0;top:0;width:100%;height:100%" scrolling=no scrollbars='no' border=0 frameborder=0></iframe>
+    <iframe id="if12" src="about:blank"  style="position:fixed;left:0;top:0;width:100%;height:100%" scrolling=no scrollbars='no' border=0 frameborder=0></iframe>
+    <iframe id="if13" src="about:blank"  style="position:fixed;left:0;top:0;width:100%;height:100%" scrolling=no scrollbars='no' border=0 frameborder=0></iframe>
+
+    <script>
+        const iframes = [
+            { id: 'if0', src: 'nca0.html' },
+            { id: 'if1', src: 'nca1.html' },
+            { id: 'if2', src: 'nca2.html' },
+            { id: 'if3', src: 'nca3.html' },
+            { id: 'if4', src: 'nca4.html' },
+            { id: 'if5', src: 'nca5.html' },
+            { id: 'if6', src: 'nca6.html' },
+            { id: 'if7', src: 'nca7.html' },
+            { id: 'if8', src: 'nca8.html' },
+            { id: 'if9', src: 'nca9.html' },
+            { id: 'if10', src: 'nca10.html' },
+            { id: 'if11', src: 'nca11.html' },
+            { id: 'if12', src: 'nca12.html' },
+            { id: 'if13', src: 'nca13.html' }
+        ];
+
+        let currentIndex = 0;
+
+        function showNextIframe() {
+            // Hide all iframes and remove their src
+            iframes.forEach(iframe => {
+                document.getElementById(iframe.id).classList.remove('active');
+                document.getElementById(iframe.id).src = 'about:blank';
+            });
+
+            // Show the next iframe and set its src
+            const nextIframe = document.getElementById(iframes[currentIndex].id);
+            nextIframe.src = iframes[currentIndex].src;
+            nextIframe.classList.add('active');
+
+            // Update the index
+            currentIndex = Math.floor(Math.random()*iframes.length); //(currentIndex + 1) % iframes.length;
+        }
+
+        // Show the first iframe initially
+        showNextIframe();
+
+        // Rotate iframes every 5 seconds
+        setInterval(showNextIframe, 20000);
+    </script>
+</body>
+</html>
