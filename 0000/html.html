@@ -1,0 +1,25 @@
+<html>
+<body>
+<iframe id='ifre' style='position:fixed;left:-0.5%;top:-0.5%;width:101%;height:101%' border=0 frameborder=0 scrollbars='no' scrolling='no' src='tf.html'></iframe>
+
+<iframe id='ifr' style='position:fixed;left:-0.5%;top:-0.5%;width:101%;height:101%' border=0 frameborder=0 scrollbars='no' scrolling='no' src='kicks.html'></iframe>
+<script>
+var nimifee=document.getElementById('ifr');
+var itzmg=0;
+function res(){
+
+nimifee.style.width=105+(5*Math.cos(itzmg))+"%";
+nimifee.style.height=105+(5*Math.cos(itzmg))+"%";
+nimifee.style.position.left=-(1*Math.cos(itzmg))+"%";
+nimifee.style.position.top=-(5*Math.cos(itzmg))+"%";
+itzmg+=0.01;
+if(itzmg>=(2*Math.PI)){
+itzmg=0;
+}
+setTimeout("res()", 80);
+}
+res();
+</script>
+
+</body>
+</html>
